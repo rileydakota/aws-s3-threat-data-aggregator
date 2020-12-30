@@ -1,6 +1,6 @@
 #  AWS S3 Threat Data Aggregator
 
-Lots of good free Threat Intelligence data out there (credit to [awesome-threat-intelligence](https://github.com/hslatman/awesome-threat-intelligence) for allowing me to find them). Getting all of these in a single place and kept up to date can be a bit toilsome. I wrote this as I needed a solution for making these accessible to our SIEM without fear of throttling/inavailability, as well as an excuse to exercise my typescript & CDK skills.
+Lots of good free Threat Intelligence data out there (credit to [awesome-threat-intelligence](https://github.com/hslatman/awesome-threat-intelligence) for allowing me to find them). Getting all of these in a single place and kept up to date can be a bit toilsome. I wrote this as I needed a solution for making these accessible to a SIEM without fear of throttling/inavailability, as well as an excuse to exercise my typescript & CDK skills.
 
 TLDR: You need to wrangle a bunch of threat data from various web urls into a central location for your Security Automation or SIEM - this is what you want!
 
@@ -41,7 +41,7 @@ import { Interval, ThreatDataFetcher } from "./threat-data-fetcher";
 The construct requires the following parameters:
 - **Bucket**: expects an AWS-CDK [Bucket](https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-s3.Bucket.html) object
 - **DataSourceUrl**: This is the URL where the data is located
-- **DataSourceName**: The name of the data source. This will be used an a prefix for the key of the file in S3, as well as to properly restrict the privileges of the IAM Role for each function to only the required S3 Prefixes 
+- **DataSourceName**: The name of the data source. This will be used as a prefix for the key of the file in S3, as well as to properly restrict the privileges of the IAM Role for each function to only the required S3 Prefixes 
 - **Interval**: expects an Interval enum (exported from the construct file). Supports specifying Hourly, Daily, Weekly, or Monthly data collection intervals currently.
 
 You can either take this repository directly and just modify the contents of [aws-s3-threat-data-aggregator-stack.ts](lib/aws-s3-threat-data-aggregator-stack.ts) by adding/removing additional ThreatDataFetcher constructs for the sources you desire from the stack or importing `Interval` and `ThreatDataFetcher` from the threat-data-fetcher.ts file in your own CDK files as shown in the example above. 

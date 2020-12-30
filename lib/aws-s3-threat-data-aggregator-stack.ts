@@ -32,5 +32,16 @@ export class AwsS3ThreatDataAggregatorStack extends cdk.Stack {
       DataSourceName: "IPSUM",
       Interval: Interval.Daily,
     });
+
+    // Binary Defense Data
+
+    const BinaryDefenseFetcher = new ThreatDataFetcher(this, "BinaryDefenseFetcher", {
+      Bucket: ThreatDataBucket,
+      DataSourceUrl: "https://www.binarydefense.com/banlist.txt",
+      DataSourceName: "BINARY_DEFENSE",
+      Interval: Interval.Daily
+    })
+
+
   }
 }
