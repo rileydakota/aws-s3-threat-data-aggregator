@@ -1,6 +1,6 @@
 #  AWS S3 Threat Data Aggregator
 
-Lots of good free Threat Intelligence data out there (credit to [awesome-threat-intelligence](https://github.com/hslatman/awesome-threat-intelligence) for allowing me to find them). Getting all of these in a single place and kept up to date can be a bit toilsome. I wrote this as I needed a solution for making these accessible to our SIEM without fear of throttling/inavailability, as well as an excuse to exercize my typescript & CDK skills.
+Lots of good free Threat Intelligence data out there (credit to [awesome-threat-intelligence](https://github.com/hslatman/awesome-threat-intelligence) for allowing me to find them). Getting all of these in a single place and kept up to date can be a bit toilsome. I wrote this as I needed a solution for making these accessible to our SIEM without fear of throttling/inavailability, as well as an excuse to exercise my typescript & CDK skills.
 
 TLDR: You need to wrangle a bunch of threat data from various web urls into a central location for your Security Automation or SIEM - this is what you want!
 
