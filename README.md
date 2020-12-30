@@ -45,3 +45,5 @@ The construct requires the following parameters:
 - Interval: expects an Interval enum (exported from the construct file). Supports specifying Hourly, Daily, Weekly, or Monthly data collection intervals
 
 ## To-Do
+- Add support for easily adding authenticated threat data sources
+- Ability to override cron schedule
