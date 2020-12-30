@@ -42,10 +42,18 @@ The construct requires the following parameters:
 - **Bucket**: expects an AWS-CDK [Bucket](https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-s3.Bucket.html) object
 - **DataSourceUrl**: This is the URL where the data is located
 - **DataSourceName**: The name of the data source. This will be used an a prefix for the key of the file in S3, as well as to properly restrict the privileges of the IAM Role for each function to only the required S3 Prefixes 
-- **Interval**: expects an Interval enum (exported from the construct file). Supports specifying Hourly, Daily, Weekly, or Monthly data collection intervals
+- **Interval**: expects an Interval enum (exported from the construct file). Supports specifying Hourly, Daily, Weekly, or Monthly data collection intervals currently.
 
-You can either take this repository directly and just modify the contents of [aws-s3-threat-data-aggregator-stack.ts](lib/aws-s3-threat-data-aggregator-stack.ts) by adding/removing additional ThreatDataFetcher constructs from the stack
+You can either take this repository directly and just modify the contents of [aws-s3-threat-data-aggregator-stack.ts](lib/aws-s3-threat-data-aggregator-stack.ts) by adding/removing additional ThreatDataFetcher constructs from the stack or importing `Interval` and `ThreatDataFetcher` from the threat-data-fetcher.ts file in your own CDK files as shown in the example above. 
+
+To deploy this as is:
+1. Ensure you have a valid set of AWS CLI Credentials (via .aws/config or Environment Variables)
+2. if you haven't already, [bootstrap](https://docs.aws.amazon.com/cdk/latest/guide/bootstrapping.html) your AWS account by running `cdk bootstrap`. Otherwise - skip this step.
+3. finally, deploy the stack by running `cdk deploy` in the root of this directory
+4. Profit
+
 
 ## To-Do
 - Add support for easily adding authenticated threat data sources
 - Ability to override cron schedule
+- Expose underlying constructs as properties on the ThreatDataFetcher class so they can be accessed if need be
