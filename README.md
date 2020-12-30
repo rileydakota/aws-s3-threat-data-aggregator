@@ -47,7 +47,7 @@ The construct requires the following parameters:
 You can either take this repository directly and just modify the contents of [aws-s3-threat-data-aggregator-stack.ts](lib/aws-s3-threat-data-aggregator-stack.ts) by adding/removing additional ThreatDataFetcher constructs from the stack or importing `Interval` and `ThreatDataFetcher` from the threat-data-fetcher.ts file in your own CDK files as shown in the example above. 
 
 To deploy this as is:
-1. Ensure you have a valid set of AWS CLI Credentials (via .aws/config or Environment Variables)
+1. Ensure you have a valid set of AWS CLI Credentials (via .aws/config or Environment Variables) - usually running `aws sts get-caller-identity` is a quick way to test this
 2. if you haven't already, [bootstrap](https://docs.aws.amazon.com/cdk/latest/guide/bootstrapping.html) your AWS account by running `cdk bootstrap`. Otherwise - skip this step.
 3. finally, deploy the stack by running `cdk deploy` in the root of this directory
 4. Profit
