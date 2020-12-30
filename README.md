@@ -10,6 +10,8 @@ The aggregator itself consists of:
 - an Eventbridge cron rule
 - a Lambda Function that GETs the specified URL and uploads it to the S3 bucket in a path specific to that dataset as data.txt (eg TOR_EXIT_NODES/data.txt)
 
+## Usage
+
 This is exposed as a CDK Construct local to the project [`ThreatDataFetcher`](lib/threat-data-fetcher.ts)
 
 Examples:
@@ -39,5 +41,7 @@ import { Interval, ThreatDataFetcher } from "./threat-data-fetcher";
 The construct requires the following parameters:
 - Bucket: expects an AWS-CDK [Bucket](https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-s3.Bucket.html) object
 - DataSourceUrl: This is the URL where the data is located
-- DataSourceName: The name of the data source. This will be used an a prefix for the key of the file in S3
-- Interval: expects an enum (exported from the construct file). Supports specifying Hourly, Daily, Weekly, or Monthly data collection intervals
+- DataSourceName: The name of the data source. This will be used an a prefix for the key of the file in S3, as well as to properly restrict the privileges of the IAM Role for each function to only the required S3 Prefixes 
+- Interval: expects an Interval enum (exported from the construct file). Supports specifying Hourly, Daily, Weekly, or Monthly data collection intervals
+
+## To-Do
