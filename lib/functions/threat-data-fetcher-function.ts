@@ -5,7 +5,7 @@ import S3 from "aws-sdk/clients/s3";
 //https://intercept.sh/threatlists/ -token required
 //https://raw.githubusercontent.com/stamparm/ipsum/master/ipsum.txt -probably needs to be its own alert - aggregates aton of threat intel data
 
-async function GetTorExitNodes(url: string) {
+async function GetThreatData(url: string) {
   console.info(`making GET request to specified URL ${url}`);
   const result = await axios.default.get(url);
   return result.data;
@@ -20,7 +20,7 @@ export const handler = async (event: any) => {
   console.info(`target URL: ${dataSourceUrl}`);
   console.info(`specified Data Source Name: ${dataSourceName}`);
 
-  const data = await GetTorExitNodes(dataSourceUrl);
+  const data = await GetThreatData(dataSourceUrl);
 
   var uploadParams: S3.PutObjectRequest = {
     Body: data,
