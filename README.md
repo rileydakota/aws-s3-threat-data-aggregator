@@ -44,7 +44,7 @@ The construct requires the following parameters:
 - **DataSourceName**: The name of the data source. This will be used an a prefix for the key of the file in S3, as well as to properly restrict the privileges of the IAM Role for each function to only the required S3 Prefixes 
 - **Interval**: expects an Interval enum (exported from the construct file). Supports specifying Hourly, Daily, Weekly, or Monthly data collection intervals currently.
 
-You can either take this repository directly and just modify the contents of [aws-s3-threat-data-aggregator-stack.ts](lib/aws-s3-threat-data-aggregator-stack.ts) by adding/removing additional ThreatDataFetcher constructs from the stack or importing `Interval` and `ThreatDataFetcher` from the threat-data-fetcher.ts file in your own CDK files as shown in the example above. 
+You can either take this repository directly and just modify the contents of [aws-s3-threat-data-aggregator-stack.ts](lib/aws-s3-threat-data-aggregator-stack.ts) by adding/removing additional ThreatDataFetcher constructs for the sources you desire from the stack or importing `Interval` and `ThreatDataFetcher` from the threat-data-fetcher.ts file in your own CDK files as shown in the example above. 
 
 To deploy this as is:
 1. Ensure you have a valid set of AWS CLI Credentials (via .aws/config or Environment Variables) - usually running `aws sts get-caller-identity` is a quick way to test this
